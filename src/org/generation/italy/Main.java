@@ -3,15 +3,16 @@ package org.generation.italy;
 public class Main {
 
 	public static void main(String[] args) {
-		Computer c=new Computer();		//nuovo oggetto Computer
+		Monitor m=new Monitor(15,"Verde");
 		
-		c.marca="Asus";				//Dotted notation
-		c.modello="Predator";
-		c.cpu="I7 13543";		
-		c.monitor=new Monitor();		//creo un nuovo oggetto Monitor e lo assegno al c.monitor; 
+		Computer c=new Computer("Asus", "Predator", "I7", 16, 700, new Monitor(17,"Nero"));		//nuovo oggetto Computer
 		
-		c.monitor.colore="Rosso";		//c => monitor => colore
+		//c.prezzo=-500;		//non se po fa
 		
+		c.setPrezzo(500);	//chiamo il setter
+		
+		System.out.println("Adesso il prezzo è: "+c.getPrezzo());		//chiamo il getter
+	    
 		
 		Negozio negozio=new Negozio();
 		
@@ -19,8 +20,8 @@ public class Main {
 		negozio.indirizzo="via Verdi 27 Roma";
 		
 		//voglio impostare la marca del primo computer del negozio
-		negozio.elencoComputer.get(0).marca="Acer";			//dotted notation
-		negozio.elencoComputer.get(0).monitor.colore="Rosso";
+		negozio.elencoComputer.get(0).setMarca("Acer");			//dotted notation
+		negozio.elencoComputer.get(0).getMonitor().setColore("Rosso");
 		
 		
 	}
